@@ -14,8 +14,8 @@ public class BeerReview : IEntityTypeConfiguration<BeerReview>
     
     public Guid UserId { get; set; }
     public User User { get; set; }
-    
-    public int Starts { get; set; }
+
+    public int Stars { get; set; }
 
     public void Configure(EntityTypeBuilder<BeerReview> builder)
     {

@@ -64,6 +64,7 @@ public class AuthController : ControllerBase
     {
         using var ctx = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
         var currentUser = await Authentication.GetCurrentUser(HttpContext, ctx, cancellationToken);
+        currentUser.Name = currentUser.Name.FirstLetterToUpper();
         return Ok(currentUser);
     }
 

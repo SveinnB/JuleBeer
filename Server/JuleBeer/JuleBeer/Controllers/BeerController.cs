@@ -27,7 +27,7 @@ public class BeerController : ControllerBase
         using var ctx = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
         var currentUser = await Authentication.GetCurrentUser(HttpContext, ctx, cancellationToken);
 
-        var beers = await ctx.Beers.ToListAsync();
+        var beers = await ctx.Beers.ToListAsync(cancellationToken);
         var myBeerReviews = await ctx.BeerReviews
             .Where(x => x.UserId == currentUser.Id)
             .ToListAsync(cancellationToken);
@@ -38,7 +38,7 @@ public class BeerController : ControllerBase
         {
             var stars = myBeerReviews
                 .Where(x => x.BeerId == beer.Id)
-                .Select(x => x.Starts)
+                .Select(x => x.Stars)
                 .FirstOrDefault();
 
             var b = new BeerDto
@@ -73,7 +73,7 @@ public class BeerController : ControllerBase
         var myStars = await ctx.BeerReviews
             .Where(x => x.UserId == currentUser.Id)
             .Where(x => x.BeerId == beer.Id)
-            .Select(x => x.Starts)
+            .Select(x => x.Stars)
             .FirstOrDefaultAsync(cancellationToken);
 
         var beerDto = new BeerDto
@@ -110,9 +110,58 @@ public class BeerController : ControllerBase
         }
 
         br.BeerId = dto.BeerId;
-        br.Starts = dto.Starts;
+        br.Stars = dto.Stars;
 
         await ctx.SaveChangesAsync(cancellationToken);
         return NoContent();
+    }
+
+    [HttpGet]
+    [Route(nameof(GetBeerResult))]
+    public async Task<IActionResult> GetBeerResult(CancellationToken cancellationToken = default)
+    {
+        using var ctx = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
+        var currentUser = await Authentication.GetCurrentUser(HttpContext, ctx, cancellationToken);
+
+        var result = new ResultDto();
+
+        var beers = await ctx.Beers.ToListAsync(cancellationToken);
+        var allBeerReviews = await ctx.BeerReviews
+            .ToListAsync(cancellationToken);
+
+        var resultList = new List<BeerResultDto>();
+        foreach (var beer in beers)
+        {
+            var totalStars = allBeerReviews
+                .Where(x => x.BeerId == beer.Id)
+                .Select(x => x.Stars)
+                .Sum();
+
+            var numberOfRatings = allBeerReviews
+                .Where(x => x.BeerId == beer.Id)
+                .Count();
+
+            double rating = 0;
+            if(numberOfRatings > 0)
+            {
+                rating = (double)totalStars / (double)numberOfRatings;
+            }
+
+            var b = new BeerResultDto
+            {
+                Id = beer.Id,
+                Name = beer.Name,
+                ImageUrl = beer.ImageUrl,
+                AverageStars = Math.Round(rating, 1),
+            };
+
+            resultList.Add(b);
+        }
+
+        result.BeerResults = resultList.OrderByDescending(x => x.AverageStars).ToList();
+        result.NumberOfUsers = await ctx.Users.CountAsync();
+        result.NumberOfRatings = await ctx.BeerReviews.CountAsync();
+
+        return Ok(result);
     }
 }

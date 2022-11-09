@@ -1,11 +1,24 @@
 <template>
   <v-container>
-    <page-title title="Bjórar" />
+    <h1 class="text-h4 mt-4 mb-2">JólaBjórar</h1>
 
-    <v-row justify="center">
-      Hallo
-    </v-row>
+    <p class="text-subtitle-1">Mín einkunnagjöf</p>
 
+    <v-data-table class="row-pointer" :loading="loading" :disable-filtering="true" :disable-sort="true"
+      :hide-default-footer="true" :mobile-breakpoint="0" :headers="headers" :items="beerList" @click:row="ClickOnRow">
+
+      <template v-slot:loading>
+        Sækja
+      </template>
+
+      <template v-slot:no-data>
+        No beers
+      </template>
+
+      <template v-slot:item.imageUrl="{ item }">
+        <v-img :src="item.imageUrl" :height="100" :width="50" contain class="my-3"></v-img>
+      </template>
+    </v-data-table>
 
   </v-container>
 </template>
@@ -19,6 +32,23 @@ export default {
     return {
       loading: false,
       beerList: [],
+      headers: [
+        {
+          text: "Mynd",
+          align: "start",
+          value: "imageUrl",
+        },
+        {
+          text: "Nafn",
+          align: "start",
+          value: "name",
+        },
+        {
+          text: "Stjörnur",
+          align: "center",
+          value: "myStars",
+        },
+      ]
     };
   },
   async created() {
@@ -32,15 +62,24 @@ export default {
       try {
         this.loading = true;
         this.beerList = await this.$axios.$get("beer/GetBeers");
-        console.log(this.beerList);
         this.loading = false;
       } catch (e) {
         this.loading = false;
         this.$store.dispatch("setError", e);
       }
     },
+    ClickOnRow(item) {
+      this.$router.push(`/beers/${item.id}`);
+    },
   },
 };
 </script>
+
+<style lang="css" scoped>
+.row-pointer>>>tbody tr :hover {
+  cursor: pointer;
+}
+</style>
+
 
 

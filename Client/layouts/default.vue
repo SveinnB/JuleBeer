@@ -8,8 +8,8 @@
 
       <nuxt-link class="mr-1 black--text" to="/">
         <v-row justify="start" align="center">
-          <p class="ma-0 text-h5">
-            Jólabjór
+          <p v-if="user" class="ma-0 text-h5">
+            {{ user.name }}
           </p>
         </v-row>
       </nuxt-link>
@@ -89,7 +89,7 @@ export default {
         },
         {
           icon: "mdi-chart-bar",
-          title: "Meðaltal",
+          title: "Niðurstöður",
           position: "top",
           to: "/beer-result",
           color: "primary",

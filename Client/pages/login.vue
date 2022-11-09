@@ -1,31 +1,25 @@
 <template>
   <v-container fluid fill-height>
-    <v-row justify="center" align="center">
-      <v-sheet class="mx-6" color="transparent" :height="60" width="100%">
-        <v-alert class="ma-auto" v-model="alert" type="error" color="p_red" transition="scale-transition" outlined
-          :max-width="700">
-          {{ alertMessage }}
-        </v-alert>
-      </v-sheet>
 
-      <v-card class="mx-6 mt-3" :width="700" :elevation="8">
-        <v-card-title>
-          Innskráning
-        </v-card-title>
+    <v-row class="ma-0" justify="center">
+      <p class="ma-0 text-center text-h4">Jólabjór Heilbrigðislausna</p>
+    </v-row>
 
-        <v-card-text>
-          <v-form ref="loginForm">
-            <v-text-field v-model="name" label="Nafn" required>
-            </v-text-field>
+    <v-card class="mx-6 mt-3" :width="700" :elevation="8">
+      <v-card-title>
+        Innskráning
+      </v-card-title>
 
-            <v-row justify="end" class="ma-0">
-              <v-btn color="primary" class="ma-0" :loading="loginLoading" outlined @click="Login">
-                Innskrá
-              </v-btn>
-            </v-row>
-          </v-form>
-        </v-card-text>
-      </v-card>
+      <v-card-text>
+        <v-text-field v-model="name" label="Nafn" required>
+        </v-text-field>
+        <v-row justify="end" class="ma-0">
+          <v-btn color="primary" class="ma-0" :loading="loginLoading" outlined @click="Login">
+            Innskrá
+          </v-btn>
+        </v-row>
+      </v-card-text>
+    </v-card>
     </v-row>
 
     <v-row justify="center">
