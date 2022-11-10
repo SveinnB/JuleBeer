@@ -4,7 +4,7 @@
 
     <p class="ma-0 text-subtitle-1">Meðaltal</p>
     <p class="ma-0 text-subtitle-1">Fjöldi þátttakenda: {{ numberOfUsers }}</p>
-    <p class="text-subtitle-1">Fjöldi einkunnargjafa: {{ numberOfRatings }}</p>
+    <p class="text-subtitle-1">Fjöldi einkunnagjafa: {{ numberOfRatings }}</p>
 
     <v-data-table class="row-pointer" :loading="loading" :disable-filtering="true" :disable-sort="true"
       :hide-default-footer="true" :mobile-breakpoint="0" :headers="headers" :items="beerList" @click:row="ClickOnRow">
