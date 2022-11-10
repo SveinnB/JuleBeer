@@ -103,7 +103,7 @@ public class Beer : IEntityTypeConfiguration<Beer>
             Name = "Stella Artois",
             Description = "Ljósgullinn. Ósætur, létt meðalfylling, lítil beiskja. Korn, blómlegir humlar",
             ABV = "5,0",
-            ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/25300_r.jpg",
+            ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/03902_r.jpg",
         }
         );
     }

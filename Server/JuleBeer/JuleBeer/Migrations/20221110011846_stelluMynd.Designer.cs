@@ -4,6 +4,7 @@ using JuleBeer.DB.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JuleBeer.Migrations
 {
     [DbContext(typeof(JuleBeerContext))]
-    partial class JuleBeerContextModelSnapshot : ModelSnapshot
+    [Migration("20221110011846_stelluMynd")]
+    partial class stelluMynd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
