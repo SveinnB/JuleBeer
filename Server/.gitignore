@@ -48,6 +48,7 @@ JuleBeer/[Oo]bj/
 JuleBeer/msbuild.log
 JuleBeer/msbuild.err
 JuleBeer/msbuild.wrn
+JuleBeer/.vs/
 
 # Private Appsettings
 */appsettings.*.json
