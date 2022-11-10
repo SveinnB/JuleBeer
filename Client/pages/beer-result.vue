@@ -2,7 +2,6 @@
   <v-container>
     <h1 class="text-h4 mt-4 mb-2">Niðurstöður</h1>
 
-    <p class="ma-0 text-subtitle-1">Meðaltal</p>
     <p class="ma-0 text-subtitle-1">Fjöldi þátttakenda: {{ numberOfUsers }}</p>
     <p class="text-subtitle-1">Fjöldi einkunnagjafa: {{ numberOfRatings }}</p>
 
