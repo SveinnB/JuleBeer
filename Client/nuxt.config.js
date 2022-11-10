@@ -106,7 +106,7 @@ export default {
   //PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     meta: {
-      name: 'JólaBjór HC',
+      name: 'JólaBjór',
       author: 'Dr. Svennsen',
       mobileAppIOS: true,
       appleStatusBarStyle: 'default',
@@ -122,7 +122,7 @@ export default {
       lang: 'en',
       name: 'JólaBjór',
       short_name: 'JólaBjór',
-      description: 'Jólabjórs smökkun',
+      description: 'JólaBjór',
       background_color: '#B71C1C'
     }
   },
