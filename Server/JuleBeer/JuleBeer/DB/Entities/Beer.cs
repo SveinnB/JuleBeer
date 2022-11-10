@@ -54,7 +54,7 @@ public class Beer : IEntityTypeConfiguration<Beer>
             Id = 4,
             Name = "Skyrjarmur Skyrjarmur nr. 99",
             Description = "Rauður, skýjaður. Hálfsætur, þéttur, meðalbeiskja, sýruríkur. Bláber, jarðarber, skyr",
-            ABV = "8",
+            ABV = "8,0",
             ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/28778_r.jpg",
         },
         new Beer
@@ -71,7 +71,7 @@ public class Beer : IEntityTypeConfiguration<Beer>
             Name = "Jóla Kaldi Súkkulaði Porter",
             Description = "Svarbrúnn. Sætuvottur, þéttur, lítil beiskja. Ristað malt, kakó, kaffi, súkkulaði",
             ABV = "6,5",
-            ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/28823_r.jpg",
+            ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/22261_r.jpg",
         },
         new Beer
         {
@@ -80,6 +80,31 @@ public class Beer : IEntityTypeConfiguration<Beer>
             Description = "Ljósgullinn, skýjaður. Ósætur, meðalfylltur, beiskur. Sítrus, mangó, barr, grösugir humlar",
             ABV = "5,2",
             ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/25300_r.jpg",
-        });
+        },
+        new Beer
+        {
+            Id = 8,
+            Name = "Tuborg Julebryg",
+            Description = "Rafbrúnn. Sætuvottur, meðalfylling, lítil beiskja. Ristað malt, þurrkaðir ávextir, kandís",
+            ABV = "5,6",
+            ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/09452_r.jpg",
+        },
+        new Beer
+        {
+            Id = 9,
+            Name = "Jóla Kaldi",
+            Description = "Rafrauður. Ósætur, meðalfylltur, ferskur, miðlungsbeiskja. Karamella, þurrkaðir ávextir, barr, jörð",
+            ABV = "5,4",
+            ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/13791_r.jpg",
+        },
+        new Beer
+        {
+            Id = 10,
+            Name = "Stella Artois",
+            Description = "Ljósgullinn. Ósætur, létt meðalfylling, lítil beiskja. Korn, blómlegir humlar",
+            ABV = "5,0",
+            ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/25300_r.jpg",
+        }
+        );
     }
 }
