@@ -2,25 +2,28 @@
   <v-container fluid fill-height>
 
     <v-row class="ma-0" justify="center">
-      <p class="ma-0 text-center text-h4">Jólabjór Heilbrigðislausna</p>
+      <p class="ma-0 text-center text-h4">Jólabjór Heilbrigðislausna 2022</p>
     </v-row>
 
-    <v-card class="mx-6 mt-3" :width="700" :elevation="8">
-      <v-card-title>
-        Innskráning
-      </v-card-title>
+    <v-row justify="center">
+      <v-card class="mx-6 mt-3" :width="700" :elevation="8">
+        <v-card-title>
+          Innskráning
+        </v-card-title>
 
-      <v-card-text>
-        <v-text-field v-model="name" label="Nafn" required>
-        </v-text-field>
-        <v-row justify="end" class="ma-0">
-          <v-btn color="primary" class="ma-0" :loading="loginLoading" outlined @click="Login">
-            Innskrá
-          </v-btn>
-        </v-row>
-      </v-card-text>
-    </v-card>
+        <v-card-text>
+          <v-text-field v-model="name" label="Nafn" required>
+          </v-text-field>
+          <v-row justify="end" class="ma-0">
+            <v-btn color="primary" class="ma-0" :loading="loginLoading" outlined @click="Login">
+              Innskrá
+            </v-btn>
+          </v-row>
+        </v-card-text>
+      </v-card>
     </v-row>
+
+
 
     <v-row justify="center">
       <v-img src="/BeerIcon.png" contain max-height="250" max-width="250">

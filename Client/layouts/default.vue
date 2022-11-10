@@ -14,9 +14,9 @@
         </v-row>
       </nuxt-link>
 
-      <v-spacer v-if="$vuetify.breakpoint.mobile" />
+      <v-spacer />
 
-      <v-btn v-if="$vuetify.breakpoint.mobile" icon class="mr-0" @click="drawer = !drawer">
+      <v-btn icon class="mr-0" @click="drawer = !drawer">
         <v-icon size="35"> mdi-menu </v-icon>
       </v-btn>
     </v-app-bar>
