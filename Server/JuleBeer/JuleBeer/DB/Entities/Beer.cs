@@ -52,7 +52,7 @@ public class Beer : IEntityTypeConfiguration<Beer>
         new Beer
         {
             Id = 4,
-            Name = "Skyrjarmur Skyrjarmur nr. 99",
+            Name = "Skyrjarmur nr. 99",
             Description = "Rauður, skýjaður. Hálfsætur, þéttur, meðalbeiskja, sýruríkur. Bláber, jarðarber, skyr",
             ABV = "8,0",
             ImageUrl = "https://www.vinbudin.is/Portaldata/1/Resources/vorumyndir/medium/28778_r.jpg",
